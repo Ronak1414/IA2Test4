@@ -1,1 +1,104 @@
+ gcc -g p1final.c -lm
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x98f: file p1final.c, line 43.
+(gdb) r
+Starting program: /home/runner/IA2Test4/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:43
+43    radius=input_radius();
+(gdb) s
+input_radius () at p1final.c:4
+4   {
+(gdb) n
+6     printf("enter the radius:\n");
+(gdb) n
+enter the radius:
+7     scanf("%f",&r);
+(gdb) n
+5
+8     return r;
+(gdb) n
+9   }
+(gdb) n
+main () at p1final.c:44
+44    height=input_heigth();
+(gdb) s
+input_heigth () at p1final.c:12
+12  {
+(gdb) n
+14    printf("enter the height:\n");
+(gdb) n
+enter the height:
+15    scanf("%f",&h);
+(gdb) n
+6
+16    return h;
+(gdb) n
+17  }
+(gdb) n
+main () at p1final.c:45
+45    length = input_length();
+(gdb) s
+input_length () at p1final.c:20
+20  {
+(gdb) n
+22    printf("enter the lenght:\n");
+(gdb) n
+enter the lenght:
+23    scanf("%f",&l);
+(gdb) n
+3
+24    return l;
+(gdb) n
+25  }
+(gdb) n
+main () at p1final.c:46
+46   weight=find_weight( radius,height, length);
+(gdb) s
+find_weight (radius=5, height=6, length=3) at p1final.c:30
+30    w=3.14*radius*radius*radius*sqrtf(height * length);
+(gdb) n
+31    return w;
+(gdb) n
+32  }
+(gdb) n
+main () at p1final.c:47
+47   output(radius,height,length,weight);
+(gdb) s
+output (radius=5, height=6, length=3, weight=1665.23645) at p1final.c:36
+36    printf("The weight of the camel with radius : %f , height : %f , length : %f is \n%f",radius,height,length,weight);
+(gdb) n
+The weight of the camel with radius : 5.000000 , height : 6.000000 , length : 3.000000 is 
+37  }
+(gdb) n
+main () at p1final.c:48
+48    return 0;
+(gdb) n
+49  }(gdb) n
+__libc_start_main (main=0x563ef3e00987 <main>, argc=1, argv=0x7ffea52968c8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffea52968b8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+1665.236450[Inferior 1 (process 433) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) Quit
+(gdb) 
